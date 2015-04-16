@@ -12,7 +12,9 @@ WSsensor mySensor = WSsensor();
 
 void setup() {
   Serial.begin(115200);
-  mySensor.enableReceive(0 , 2);  // Receiver on inerrupt 0 => that is pin #2
+  // Initialize
+  // mySensor.enableReceive(2);   //(repeats paquet) Default interrupt 0. => that is pin #2
+  mySensor.enableReceive(0 , 2);  //(pin interrupt, repeats paquet) 
 }
 void loop (){
   static int c;
