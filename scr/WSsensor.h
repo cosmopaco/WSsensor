@@ -49,28 +49,28 @@ const unsigned int BIT1_MAX = MARK_MAX * 8;
 class WSsensor {
 
 	public:
-		WSsensor();
-		void enableReceive();
-		void enableReceive(int8_t interrupt);
-		void enableReceive(int8_t interrupt, uint8_t minRepeats);		
-		void disableReceive();
-		virtual uint8_t peek();
-		bool avalaible();
-		void resetAvailable();
+	WSsensor();
+	void enableReceive();
+	void enableReceive(int8_t interrupt);
+	void enableReceive(int8_t interrupt, uint8_t minRepeats);		
+	void disableReceive();
+	virtual uint8_t peek();
+	bool avalaible();
+	void resetAvailable();
         int readId();
         int readTe();
         int readHu();
         int readUn();
         int readCh();
 		
-		union  sensor{
-			struct {
-				uint32_t humidity : 8;
-				uint32_t temperature : 12;				
-				uint32_t chanel: 2;
-				uint32_t padding: 2;
-				uint32_t randomID: 8;
-			};
+	union  sensor{
+		struct {
+			uint32_t humidity : 8;
+			uint32_t temperature : 12;
+			uint32_t chanel: 2;
+			uint32_t padding: 2;
+			uint32_t randomID: 8;
+		};
 			uint32_t all;
 		};
 		
