@@ -80,11 +80,11 @@ class WSsensor {
 		static sensor _previousData;
 		static sensor _outBuffer;
 		
-		static int8_t _interrupt;				// Radio input interrupt		
+		static int8_t _interrupt;	// Radio input interrupt		
 		static uint8_t _minRepeats;
-		static int8_t _bitCount;				// Counter bit input.		
-		static bool _inCallback;				// When true, the callback function is being executed; prevents re-entrance.
-		static bool _enabled;				    // If true, monitoring and decoding is enabled. If false, interruptHandler will return immediately.
+		static int8_t _bitCount;	// Counter bit input.		
+		static bool _inCallback;	// When true, the callback function is being executed; prevents re-entrance.
+		static bool _enabled;		// If true, monitoring and decoding is enabled. If false, interruptHandler will return immediately.
 		static bool _haveData;	
 		
 		// 
