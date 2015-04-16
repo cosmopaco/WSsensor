@@ -14,7 +14,7 @@ void setup() {
   Serial.begin(115200);
   // Initialize
   // mySensor.enableReceive(2);   //(repeats paquet) Default interrupt 0. => that is pin #2
-  mySensor.enableReceive(0 , 2);  //(pin interrupt, repeats paquet) 
+  mySensor.enableReceive(0 , 2);  //(Interrupt, repeats paquet) Find interrupt pins for Arduino
 }
 void loop (){
   static int c;
