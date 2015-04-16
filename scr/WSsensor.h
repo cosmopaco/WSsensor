@@ -41,17 +41,7 @@ const unsigned int BIT1_MIN = MARK_MIN * 8;
 const unsigned int BIT1_MAX = MARK_MAX * 8;
 
 /**
-* See RemoteSwitch for introduction.
 *
-* NewRemoteReceiver decodes the signal received from a 433MHz-receiver, like the "KlikAanKlikUit"-system
-* as well as the signal sent by the RemoteSwtich class. When a correct signal is received,
-* a user-defined callback function is called.
-*
-* Note that in the callback function, the interrupts are still disabled. You can enabled them, if needed.
-* A call to the callback must be finished before NewRemoteReceiver will call the callback function again, thus
-* there is no re-entrant problem.
-*
-* When sending your own code using NewRemoteSwich, disable() the receiver first.
 *
 * This is a pure static class, for simplicity and to limit memory-use.
 */
@@ -73,8 +63,7 @@ class WSsensor {
         int readUn();
         int readCh();
 		
-		//virtual 
-		union  sensor{			
+		union  sensor{
 			struct {
 				uint32_t humidity : 8;
 				uint32_t temperature : 12;				
@@ -87,20 +76,16 @@ class WSsensor {
 		
 	private:
 	
-	
 		static sensor _receivedData;
 		static sensor _previousData;
 		static sensor _outBuffer;
 		
 		static int8_t _interrupt;				// Radio input interrupt		
 		static uint8_t _minRepeats;
-		static int8_t _bitCount;				// Counter bit input.
-		
+		static int8_t _bitCount;				// Counter bit input.		
 		static bool _inCallback;				// When true, the callback function is being executed; prevents re-entrance.
 		static bool _enabled;				    // If true, monitoring and decoding is enabled. If false, interruptHandler will return immediately.
-		static bool _haveData;
-		
-		
+		static bool _haveData;	
 		
 		// 
 		static void reset();
